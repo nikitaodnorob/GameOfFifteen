@@ -13,7 +13,7 @@ typedef vector<vector<byte>> matrix;
 namespace AStar {
 
 	struct TreeNode : BaseTreeNode {
-		int distanceFromStart = 0;
+		byte distanceFromStart = 0;
 
 		TreeNode(matrix m) : BaseTreeNode(m), distanceFromStart(0) {}
 
@@ -21,11 +21,11 @@ namespace AStar {
 			if (parent != nullptr) distanceFromStart = parent->distanceFromStart + 1;
 		}
 
-		int getF() {
+		byte getF() {
 			return distanceFromStart + getManhattan();
 		}
 
-		TreeNode* moveZero(int dx, int dy) {
+		TreeNode* moveZero(byte dx, byte dy) {
 			TreeNode* res = new TreeNode(m, this);
 			byte newZeroX = zeroX + (byte)dx;
 			byte newZeroY = zeroY + (byte)dy;
@@ -51,7 +51,7 @@ namespace AStar {
 		};
 	};
 
-	TreeNode* solve(matrix start, int zeroX, int zeroY) {
+	TreeNode* solve(matrix start, byte zeroX, byte zeroY) {
 		TreeNode* s = new TreeNode(start);
 		s->zeroX = zeroX;
 		s->zeroY = zeroY;

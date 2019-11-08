@@ -68,7 +68,7 @@ void printAnswer(BaseTreeNode* result) {
 	}
 }
 
-void readMatrix(matrix& m, int& zeroX, int& zeroY) {
+void readMatrix(matrix& m, byte& zeroX, byte& zeroY) {
 	cout << "Enter the start position: ";
 	m = matrix(N, vector<byte>(N));
 	byte c;
@@ -103,7 +103,7 @@ void solveAStar(matrix m, int zeroX, int zeroY) {
 
 int main() {
 	matrix m(N, vector<byte>(N));
-	int zeroX, zeroY;
+	byte zeroX, zeroY;
 
 	//123056789ABCDEF4 - 19 steps, 8.5 ms
 	//2F03716A5CD49E8B - 40 steps, 1.09 sec

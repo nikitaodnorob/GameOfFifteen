@@ -6,7 +6,7 @@ using std::vector;
 typedef unsigned char byte;
 typedef vector<vector<byte>> matrix;
 
-const int N = 4;
+const byte N = 4;
 
 struct BaseTreeNode {
 	matrix m;
@@ -17,11 +17,11 @@ struct BaseTreeNode {
 
 	BaseTreeNode(matrix m, BaseTreeNode* parent) : m(m), parent(parent) {}
 
-	int getManhattan() {
-		int res = 0;
-		for (int i = 0; i < N; i++)
-			for (int j = 0; j < N; j++) {
-				int v = m[i][j];
+	byte getManhattan() {
+		byte res = 0;
+		for (byte i = 0; i < N; i++)
+			for (byte j = 0; j < N; j++) {
+				byte v = m[i][j];
 				if (!v) continue;
 				res += abs(i - (v - 1) / N) + abs(j - (v - 1) % N);
 			}
@@ -29,8 +29,8 @@ struct BaseTreeNode {
 	}
 
 	bool isGoal() {
-		for (int i = 0; i < N; i++)
-			for (int j = 0; j < N; j++) {
+		for (byte i = 0; i < N; i++)
+			for (byte j = 0; j < N; j++) {
 				if ((i < N - 1 || j < N - 1) && m[i][j] != i * N + j + 1) return false;
 				else if (i == N - 1 && j == N - 1 && m[i][j]) return false;
 			}
