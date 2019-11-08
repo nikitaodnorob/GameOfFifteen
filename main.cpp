@@ -4,7 +4,6 @@
 #include <string>
 #include <chrono>
 #include "AStar.h"
-#include "IDAStar.h"
 #include "BaseTreeNode.h"
 
 using std::cin;
@@ -97,14 +96,6 @@ void printTime(steady_clock::time_point t1, steady_clock::time_point t2) {
 void solveAStar(matrix m, int zeroX, int zeroY) {
 	auto t1 = high_resolution_clock::now();
 	BaseTreeNode* result = AStar::solve(m, zeroX, zeroY);
-	auto t2 = high_resolution_clock::now();
-	printAnswer(result);
-	printTime(t1, t2);
-}
-
-void solveIDAStar(matrix m, int zeroX, int zeroY) {
-	auto t1 = high_resolution_clock::now();
-	BaseTreeNode* result = IDAStar::solve(m, zeroX, zeroY);
 	auto t2 = high_resolution_clock::now();
 	printAnswer(result);
 	printTime(t1, t2);
